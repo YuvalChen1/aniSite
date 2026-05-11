@@ -111,10 +111,9 @@ function handleZoneClick(el) {
   let targetLeft, targetTop;
 
   if (category === 'sports') {
-    // Walk to the counter stool position
-    // Counter surface is at ~28%, Stool seat is at ~46%
-    targetLeft = 24; 
-    targetTop  = 46; 
+    // Square image coords: counter at 53%, stool seat at 65%
+    targetLeft = 32; 
+    targetTop  = 65; 
   } else {
     const elRect = el.getBoundingClientRect();
     const containerRect = gameContainer.getBoundingClientRect();
