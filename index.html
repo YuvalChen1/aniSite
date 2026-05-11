@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="An interactive point-and-click adventure style news and articles website." />
+    <title>AniSite - Interactive World News</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="game-container">
+      <div id="room-background">
+        <!-- Interactive Zones: TV only keeps its zone indicator -->
+        <div id="zone-tv" class="interactive-zone" data-target="culture" title="Culture & History (Click TV)">
+          <div class="zone-indicator"></div>
+        </div>
+        <!-- Kitchen: the newspaper itself IS the interactive zone -->
+
+        <!-- TV Screen (lights up when turned on) -->
+        <div id="tv-screen">
+          <div class="tv-static-lines"></div>
+          <div class="tv-glow"></div>
+        </div>
+
+        <!-- Sports Newspaper sitting on top of kitchen counter -->
+        <div id="newspaper" data-target="sports" title="Sports (Click Kitchen Counter)">
+          <div class="newspaper-inner">
+            <div class="np-header">SPORTS<br/><span>DAILY</span></div>
+            <div class="np-headline">BREAKING<br/>NEWS</div>
+            <div class="np-cols">
+              <div class="np-col"></div>
+              <div class="np-col"></div>
+              <div class="np-col"></div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- The Character -->
+        <div id="character" class="idle">
+          <div class="stickman">
+            <div class="head">
+              <div class="face">
+                <div class="eye left-eye"></div>
+                <div class="eye right-eye"></div>
+                <div class="mouth"></div>
+              </div>
+            </div>
+            <div class="torso"></div>
+            <div class="arm left-arm"></div>
+            <div class="arm right-arm"></div>
+            <div class="leg left-leg"></div>
+            <div class="leg right-leg"></div>
+          </div>
+          <div class="character-shadow"></div>
+        </div>
+      </div>
+      
+      <!-- Modal Overlay -->
+      <div id="article-modal" class="hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+          <button id="close-modal" aria-label="Close modal">&times;</button>
+          <div class="modal-header">
+            <h2 id="modal-title">Category</h2>
+            <p id="modal-subtitle">Latest updates and stories</p>
+          </div>
+          <div id="articles-container" class="articles-grid"></div>
+        </div>
+      </div>
+
+      <!-- UI Overlay -->
+      <div id="ui-layer">
+        <button id="mute-bgm" class="audio-btn" title="Toggle Music">🎵</button>
+        <button id="mute-sfx" class="audio-btn" title="Toggle SFX">🔊</button>
+      </div>
+
+      <!-- Start Overlay -->
+      <div id="start-overlay">
+        <div class="start-content">
+          <h1>Welcome to AniSite</h1>
+          <p>Click below to enter the interactive experience.</p>
+          <button id="start-btn">Start Experience</button>
+        </div>
+      </div>
+    </div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
